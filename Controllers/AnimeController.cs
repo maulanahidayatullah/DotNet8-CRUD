@@ -1,5 +1,11 @@
-﻿using Dotnet_AnimeCRUD.Data;
-using Dotnet_AnimeCRUD.Entities;
+﻿using Dotnet_AnimeCRUD.Model;
+using Dotnet_AnimeCRUD.Model.DTO.Filter;
+using Dotnet_AnimeCRUD.Model.DTO.Filter.BaseFilter;
+using Dotnet_AnimeCRUD.Model.DTO.Request;
+using Dotnet_AnimeCRUD.Model.DTO.Response;
+using Dotnet_AnimeCRUD.Model.DTO.Response.BaseResponse;
+using Dotnet_AnimeCRUD.Model.Entities;
+using Dotnet_AnimeCRUD.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,103 +17,63 @@ namespace Dotnet_AnimeCRUD.Controllers
     [ApiController]
     public class AnimeController : ControllerBase
     {
-        // menginject datacontext agar bisa dipakai di controller
-        // dengan menggunakan constructor
-        private readonly DataContext _dataContext;
-        public AnimeController(DataContext dataContext)
+        // menginject AnimeService agar bisa dipanggil atau dipakai di controller
+        // Diharuskan pakai constructor
+        // Agar di inject atau class lain bisa di pakai di class ini
+        private readonly AnimeDBContext _dbContext;
+        private readonly AnimeService animeService;
+        public AnimeController(AnimeDBContext _dbContext, AnimeService animeService)
         {
-            _dataContext = dataContext;
+            this._dbContext = _dbContext;
+            this.animeService = animeService;
         }
 
-        // !!! yang inject context langsung ini hanya contoh !!!
-        // !!! selanjutnya mungkin akan menggunakan service ama repository !!!
-        // !!! jdi context ini harusnya ditaruh di service atau repository !!!
-        // !!! dan controller hanya mengambil inject dari service atau repository !!!
+        // !! Kenapa pakai AnimeResponse? !!
+        // !! Karena barangkali nnti responsenya ada array !!
+        // !! Soalnya kalau dari entity dia HANYA UNTUK COLUMN YANG ADA PADA TABEL !!
 
-        //Bisa diganti misal nnti buat detail
+        // Akan mengembalikan PaginatedResponse yang ada pada DTO -> Response -> BaseResponse -> PaginatedResponse
+        // Dengan nnti ada inputan pada query dengan inputannya ada pada DTO -> Filter -> AnimeFilter yg berisi : 
+        // Search, dan turunan atau isi dari DTO -> Filter -> BaseFilter -> PaginatedFilter yg berisi jga Page & PageSize
+        // Makanya di swagger akan ada inputan query Page & PageSize
+        // Kenapa pakai AnimeResponse
+        // Agar object yang ada pada PaginatedResponse struktur modelnya akan sama seperti AnimeResponse
         [HttpGet]
-        public async Task<ActionResult<List<Anime>>> GetAllAnime()
-            // pakai ActionResult biar fe bisa tahu example data apa saja yg nnti akan muncul
-            // atau pakai IActionResult tpi fe ngga bisa tahu data apa yg muncul
+        public async Task<PaginatedResponse<AnimeResponse>> GetListAnime([FromQuery] AnimeFilter filter)
         {
-            // awal tidak pakai db
-            //var anime = new List<Anime>
-            //{
-            //    new Anime
-            //    {
-            //        Id = 1,
-            //        Tittle = "Hatsune Miku",
-            //        Description = "Hatsune Miku is vocaloid singer"
-            //    }
-            //};
-
-            // pakai db
-            var animes = await _dataContext.Animes.ToListAsync();
-
-            return Ok(animes);
+            // Dia akan Menginject Service -> AnimeService 
+            // Dengan mengirim filter yang ada pada parameter
+            return await animeService.GetListAnime(filter);
         }
 
         // Biar dapet id dari params
+        // Kenapa pakai AnimeResponse
+        // Agar object yang ada pada PaginatedResponse struktur modelnya akan sama seperti AnimeResponse
         [HttpGet("detail/{id}")]
-        // ActionResult tidak pakai list buat di swaggernya dia dapet response object
-        public async Task<ActionResult<Anime>> GetDetailAnime(int id)
+        public async Task<DetailResponse<AnimeResponse>> GetDetailAnime(int id)
         {
-            var anime = await _dataContext.Animes.FindAsync(id);
-            if (anime is null)
-            {
-                return NotFound("Anime Not Found!");
-            }
-
-            return Ok(anime);
+            // Akan mengirim id ke AnimeService -> DetailAnime
+            return await animeService.GetDetailAnime(id);
         }
 
         [HttpPost("create")]
-        // Request yg Anime di param harusnya pakai DTO (Data Transfer Object)
-        // Jdi Request sama Ressponse modelnya dibedain
-        public async Task<ActionResult> CreateAnime([FromBody] Anime anime)
+        public async Task<BaseResponse> CreateAnime([FromBody] AnimeRequest request)
         {
-            // pertama dia akan menyimpan dlu di entities
-            // abis itu dia commit ke db nya agar bisa di save
-            _dataContext.Animes.Add(anime);
-            await _dataContext.SaveChangesAsync();
-
-            return Ok("Created Successfully!");
+            // Akan mengirim request ke AnimeService -> CreateAnime
+            return await animeService.CreateAnime(request);
         }
 
         [HttpPut("update/{id}")]
-        // Request yg Anime di param harusnya pakai DTO (Data Transfer Object)
-        // Jdi Request sama Ressponse modelnya dibedain
-        public async Task<ActionResult> UpdateAnime([FromBody] Anime animeReq, int id)
+        public async Task<BaseResponse> UpdateAnime(int id, [FromBody] AnimeRequest request)
         {
-            var animeData = await _dataContext.Animes.FindAsync(id);
-            if (animeData is null)
-            {
-                return NotFound("Anime Not Found!");
-            }
-
-            animeData.Tittle = animeReq.Tittle;
-            animeData.Description = animeReq.Description;
-
-            await _dataContext.SaveChangesAsync();
-
-            return Ok("Updated Successfully!");
+            // Akan mengirim id dari param dan request dari body ke AnimeService -> UpdateAnime
+            return await animeService.UpdateAnime(id, request);
         }
 
         [HttpDelete("delete/{id}")]
-        // Request yg Anime di param harusnya pakai DTO (Data Transfer Object)
-        // Jdi Request sama Ressponse modelnya dibedain
-        public async Task<ActionResult> DeleteAnime( int id)
+        public async Task<BaseResponse> DeleteAnime(int id)
         {
-            var animeData = await _dataContext.Animes.FindAsync(id);
-            if (animeData is null)
-            {
-                return NotFound("Anime Not Found!");
-            }
-
-            _dataContext.Animes.Remove(animeData);
-            await _dataContext.SaveChangesAsync();
-
-            return Ok("Deleted Successfully!");
+            return await animeService.DeleteAnime(id);
         }
     }
 }

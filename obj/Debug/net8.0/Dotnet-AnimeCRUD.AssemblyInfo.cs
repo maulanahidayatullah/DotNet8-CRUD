@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Dotnet-AnimeCRUD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b756b215271d9f059f3f1e5ca11571fbf11b3c70")]
 [assembly: System.Reflection.AssemblyProductAttribute("Dotnet-AnimeCRUD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Dotnet-AnimeCRUD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

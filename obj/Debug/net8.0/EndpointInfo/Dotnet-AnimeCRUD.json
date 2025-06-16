@@ -10,32 +10,50 @@
         "tags": [
           "Anime"
         ],
+        "parameters": [
+          {
+            "name": "Search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Anime"
-                  }
+                  "$ref": "#/components/schemas/AnimeResponsePaginatedResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Anime"
-                  }
+                  "$ref": "#/components/schemas/AnimeResponsePaginatedResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Anime"
-                  }
+                  "$ref": "#/components/schemas/AnimeResponsePaginatedResponse"
                 }
               }
             }
@@ -65,17 +83,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Anime"
+                  "$ref": "#/components/schemas/AnimeResponseDetailResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Anime"
+                  "$ref": "#/components/schemas/AnimeResponseDetailResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Anime"
+                  "$ref": "#/components/schemas/AnimeResponseDetailResponse"
                 }
               }
             }
@@ -92,24 +110,41 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Anime"
+                "$ref": "#/components/schemas/AnimeRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Anime"
+                "$ref": "#/components/schemas/AnimeRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Anime"
+                "$ref": "#/components/schemas/AnimeRequest"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              }
+            }
           }
         }
       }
@@ -134,24 +169,41 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Anime"
+                "$ref": "#/components/schemas/AnimeRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Anime"
+                "$ref": "#/components/schemas/AnimeRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Anime"
+                "$ref": "#/components/schemas/AnimeRequest"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              }
+            }
           }
         }
       }
@@ -174,7 +226,24 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponse"
+                }
+              }
+            }
           }
         }
       }
@@ -221,11 +290,25 @@
   },
   "components": {
     "schemas": {
-      "Anime": {
+      "AnimeRequest": {
         "required": [
           "description",
           "tittle"
         ],
+        "type": "object",
+        "properties": {
+          "tittle": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnimeResponse": {
         "type": "object",
         "properties": {
           "id": {
@@ -237,6 +320,89 @@
             "nullable": true
           },
           "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnimeResponseDetailResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/AnimeResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnimeResponsePaginatedResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalData": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxPage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnimeResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BaseResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "message": {
             "type": "string",
             "nullable": true
           }

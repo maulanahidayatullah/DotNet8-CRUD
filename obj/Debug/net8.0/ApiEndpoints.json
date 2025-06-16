@@ -1,15 +1,31 @@
 [
   {
     "ContainingType": "Dotnet_AnimeCRUD.Controllers.AnimeController",
-    "Method": "GetAllAnime",
+    "Method": "GetListAnime",
     "RelativePath": "api/anime",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "Search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Dotnet_AnimeCRUD.Entities.Anime, Dotnet-AnimeCRUD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "Dotnet_AnimeCRUD.Model.DTO.Response.BaseResponse.PaginatedResponse\u00601[[Dotnet_AnimeCRUD.Model.DTO.Response.AnimeResponse, Dotnet-AnimeCRUD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -28,12 +44,22 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "anime",
-        "Type": "Dotnet_AnimeCRUD.Entities.Anime",
+        "Name": "request",
+        "Type": "Dotnet_AnimeCRUD.Model.DTO.Request.AnimeRequest",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "Dotnet_AnimeCRUD.Model.DTO.Response.BaseResponse.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "Dotnet_AnimeCRUD.Controllers.AnimeController",
@@ -49,7 +75,17 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "Dotnet_AnimeCRUD.Model.DTO.Response.BaseResponse.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "Dotnet_AnimeCRUD.Controllers.AnimeController",
@@ -67,7 +103,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Dotnet_AnimeCRUD.Entities.Anime",
+        "Type": "Dotnet_AnimeCRUD.Model.DTO.Response.BaseResponse.DetailResponse\u00601[[Dotnet_AnimeCRUD.Model.DTO.Response.AnimeResponse, Dotnet-AnimeCRUD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -86,17 +122,27 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "animeReq",
-        "Type": "Dotnet_AnimeCRUD.Entities.Anime",
-        "IsRequired": true
-      },
-      {
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Dotnet_AnimeCRUD.Model.DTO.Request.AnimeRequest",
+        "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "Dotnet_AnimeCRUD.Model.DTO.Response.BaseResponse.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "Dotnet_AnimeCRUD.Controllers.WeatherForecastController",
