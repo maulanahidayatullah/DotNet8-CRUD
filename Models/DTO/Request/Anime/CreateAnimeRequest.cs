@@ -9,5 +9,9 @@ namespace Dotnet_AnimeCRUD.Models.DTO.Request
 
         [Required(ErrorMessage = "Description is required")]
         public string Description { get; set; } = "" ;
+
+        // nnti akan mengirim array atau list CategoryId
+        [Required(ErrorMessage = "Category is required")]
+        public List<int> CategoryIds { get; set; } = new();
     }
 }

@@ -94,7 +94,13 @@ namespace Dotnet_AnimeCRUD.Service
             // !!! Builder = membuat objek.
             // !!! Mapping = genti objek ke bentuk lain (Response atau DTO atau Entity).
 
-            var result = await _dbContext.Animes.FindAsync(id);
+            var result = await _dbContext.Animes
+                // Akan berelasi ke tabel AnimeCategories
+                .Include(a => a.AnimeCategories)
+                    // Dan berelasi lagi ke tabel Category
+                    .ThenInclude(ac => ac.Category)
+                // Kemudian mencari berdasarkan AnimeId
+                .FirstOrDefaultAsync(a => a.Id == id);
 
             if (result is null)
             {
@@ -111,11 +117,28 @@ namespace Dotnet_AnimeCRUD.Service
 
 
             // Kalau datanya ada maka akan di mapping atau masukan dlu ke AnimeResponse yang datanya didapat dari query 
+            //var dataMapping = new DetailAnimeResponse
+            //{
+            //    Id = result.Id,
+            //    Tittle = result.Tittle,
+            //    Description = result.Description,
+            //    Categories = result.Categories.Select(c => new AnimeCategoriesResponse
+            //    {
+            //        Id = c.AnimeId,
+            //        Categoryname = c.CategoryId
+            //    }).ToList()
+            //};
+
             var dataMapping = new DetailAnimeResponse
             {
                 Id = result.Id,
                 Tittle = result.Tittle,
-                Description = result.Description
+                Description = result.Description,
+                Categories = result.AnimeCategories.Select(ac => new DetailAnimeResponse.CategoriesDTO // Memasukan ke CategoriesDTO yang ada di file DetailAnimeResponse
+                {
+                    Id = ac.Category.Id,
+                    Categoryname = ac.Category.Categoryname
+                }).ToList()
             };
 
             // Kemudian yang sudah di mapping tadi dimasukan ke object data DetailResponse
@@ -144,6 +167,14 @@ namespace Dotnet_AnimeCRUD.Service
                 Tittle = request.Tittle,
                 Description = request.Description
             };
+
+            foreach (var categoryId in request.CategoryIds)
+            {
+                dataMapping.AnimeCategories.Add(new AnimeCategory
+                {
+                    CategoryId = categoryId
+                });
+            }
 
             // Tambahkan dataMapping tadi ke fungsi Add
             _dbContext.Animes.Add(dataMapping);

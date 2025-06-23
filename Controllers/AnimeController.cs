@@ -15,7 +15,6 @@ using Microsoft.EntityFrameworkCore;
 namespace Dotnet_AnimeCRUD.Controllers
 {
     // Bisa diganti buat nama api nya
-    [Authorize(Roles = "Admin")]
     [Route("api/anime")]
     [ApiController]
     public class AnimeController : ControllerBase
@@ -60,6 +59,8 @@ namespace Dotnet_AnimeCRUD.Controllers
             return await animeService.GetDetailAnime(id);
         }
 
+
+        [Authorize(Roles = "Admin")]
         [HttpPost("create")]
         public async Task<BaseResponse> CreateAnime([FromBody] CreateAnimeRequest request)
         {
@@ -67,6 +68,7 @@ namespace Dotnet_AnimeCRUD.Controllers
             return await animeService.CreateAnime(request);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("update/{id}")]
         public async Task<BaseResponse> UpdateAnime(int id, [FromBody] UpdateAnimeRequest request)
         {
@@ -74,6 +76,7 @@ namespace Dotnet_AnimeCRUD.Controllers
             return await animeService.UpdateAnime(id, request);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("delete/{id}")]
         public async Task<BaseResponse> DeleteAnime(int id)
         {

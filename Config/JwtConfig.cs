@@ -4,13 +4,13 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Dotnet_AnimeCRUD.Helpers
+namespace Dotnet_AnimeCRUD.Config
 {
-    public class JwtTokenGenerator
+    public class JwtConfig
     {
 
         private readonly IConfiguration _config;
-        public JwtTokenGenerator(IConfiguration _config)
+        public JwtConfig(IConfiguration _config)
         {
             this._config = _config;
         }

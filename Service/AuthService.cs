@@ -1,6 +1,7 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Dotnet_AnimeCRUD.Config;
 using Dotnet_AnimeCRUD.Helpers;
 using Dotnet_AnimeCRUD.Model;
 using Dotnet_AnimeCRUD.Model.DTO.Response.BaseResponse;
@@ -18,12 +19,12 @@ namespace Dotnet_AnimeCRUD.Service
     {
         private readonly AnimeDBContext _dbContext; // untuk memanggil db nya
         private readonly ILogger<AuthService> _logger; // untuk logging dari .net
-        private readonly JwtTokenGenerator _jwtGen; // untuk generate jwt yang ada di helper
+        private readonly JwtConfig _jwtGen; // untuk generate jwt yang ada di helper
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         // Diharuskan pakai constructor
         // Agar di inject atau class lain bisa di pakai di class ini
-        public AuthService(ILogger<AuthService> _logger, AnimeDBContext _dbContext, JwtTokenGenerator _jwtGen, IHttpContextAccessor _httpContextAccessor)
+        public AuthService(ILogger<AuthService> _logger, AnimeDBContext _dbContext, JwtConfig _jwtGen, IHttpContextAccessor _httpContextAccessor)
         {
             this._jwtGen = _jwtGen;
             this._logger = _logger;
@@ -36,9 +37,9 @@ namespace Dotnet_AnimeCRUD.Service
             // Ambil data user dengan relasi (include) ketabel Role
             var result = await _dbContext.Users
                     .Include(u => u.Role)
-                    .FirstOrDefaultAsync(u => u.Username == request.Username && u.Password == request.Password);
+                    .FirstOrDefaultAsync(u => u.Username == request.Username);
 
-            if (result is null)
+            if (result is null || !AuthHelper.Verify(request.Password, result.Password))
             {
                 return new DetailResponse<LoginResponse>
                 {
@@ -104,7 +105,7 @@ namespace Dotnet_AnimeCRUD.Service
                 Rolename = result.Role.Rolename,
                 // Buat percobaan kalau nnti ada response object
                 // MeRoleResponse ada di dalam file MeResponse dengan pakai Nested
-                Role = new MeRoleResponse
+                Role = new MeResponse.RolesDTO
                 {
                     Id = result.Role.Id,
                     Rolename = result.Role.Rolename

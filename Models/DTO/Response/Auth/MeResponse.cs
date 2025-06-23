@@ -5,14 +5,15 @@
         public int Id { get; set; }
         public string Username { get; set; } = string.Empty;
         public string Rolename { get; set; } = string.Empty;
-        public MeRoleResponse Role { get; set; } = new();
+        public RolesDTO Role { get; set; } = new();
+        // Pakai Nested
+        public class RolesDTO
+        {
+            public int Id { get; set; }
+            public string Rolename { get; set; } = string.Empty;
+        }
 
     }
 
-    // Pakai Nested
-    public class MeRoleResponse
-    {
-        public int Id { get; set; }
-        public string Rolename { get; set; } = string.Empty;
-    }
+    
 }

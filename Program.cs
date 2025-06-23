@@ -1,4 +1,5 @@
 using System.Text;
+using Dotnet_AnimeCRUD.Config;
 using Dotnet_AnimeCRUD.Helpers;
 using Dotnet_AnimeCRUD.Model;
 using Dotnet_AnimeCRUD.Service;
@@ -46,8 +47,11 @@ builder.Services.AddSwaggerGen(opt =>
 // Daftarin Service disini
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<AnimeService>();
-builder.Services.AddScoped<UserService>(); 
-builder.Services.AddScoped<JwtTokenGenerator>();
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<CategoryService>();
+
+builder.Services.AddScoped<JwtConfig>();
+builder.Services.AddScoped<AuthHelper>();
 
 builder.Services.AddDbContext<AnimeDBContext>(options =>
     // GetConnectionString yang ada pada appsettings.json

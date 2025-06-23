@@ -9,6 +9,8 @@ using Dotnet_AnimeCRUD.Models.DTO.Request;
 using Dotnet_AnimeCRUD.Models.DTO.Response.Anime;
 using Dotnet_AnimeCRUD.Models.DTO.Request.User;
 using Dotnet_AnimeCRUD.Model.DTO.User.Request;
+using System.Linq.Expressions;
+using Dotnet_AnimeCRUD.Helpers;
 
 namespace Dotnet_AnimeCRUD.Service
 {
@@ -16,11 +18,13 @@ namespace Dotnet_AnimeCRUD.Service
     {
         private readonly AnimeDBContext _dbContext; // untuk memanggil db nya
         private readonly ILogger<UserService> _logger; // untuk logging dari .net
+        private readonly AuthHelper _authHelper; // untuk generate jwt yang ada di helper
 
         // Diharuskan pakai constructor
         // Agar di inject atau class lain bisa di pakai di class ini
-        public UserService(ILogger<UserService> _logger, AnimeDBContext _dbContext)
+        public UserService(ILogger<UserService> _logger, AnimeDBContext _dbContext, AuthHelper _authHelper)
         {
+            this._authHelper = _authHelper;
             this._logger = _logger;
             this._dbContext = _dbContext;
         }
@@ -68,7 +72,9 @@ namespace Dotnet_AnimeCRUD.Service
         }
         public async Task<DetailResponse<DetailUserResponse>> GetDetailUser(int id)
         {
-            var result = await _dbContext.Users.FindAsync(id);
+            var result = await _dbContext.Users
+                .Include(u => u.Role)
+                .FirstOrDefaultAsync(u => u.Id == id);
 
             if (result is null)
             {
@@ -83,7 +89,8 @@ namespace Dotnet_AnimeCRUD.Service
             var dataMapping = new DetailUserResponse
             {
                 Id = result.Id,
-                Username = result.Username
+                Username = result.Username,
+                Rolename = result.Role.Rolename
             };
 
             var response = new DetailResponse<DetailUserResponse>
@@ -98,22 +105,45 @@ namespace Dotnet_AnimeCRUD.Service
         }
         public async Task<BaseResponse> CreateUser(CreateUserRequest request)
         {
-            var dataMapping = new User
-            {
-                Username = request.Username,
-                Password = request.Password,
-                RoleId = request.RoleId
-            };
+            try  {
+                var count = _dbContext.Users.Where(q => q.Username.Equals(request.Username)).Count();
+                if (count > 0)
+                {
+                    return new BaseResponse()
+                    {
+                        Status = false,
+                        StatusCode = 409,
+                        Message = "Data Is Already Exist!",
+                    };
+                }
 
-            _dbContext.Users.Add(dataMapping);
-            await _dbContext.SaveChangesAsync();
+                var password = AuthHelper.Generate(request.Password);
 
-            return new BaseResponse()
-            {
-                Status = true,
-                StatusCode = 200,
-                Message = "Successfully Created!",
-            };
+                var dataMapping = new User
+                {
+                    Username = request.Username,
+                    Password = password,
+                    RoleId = request.RoleId
+                };
+
+                _dbContext.Users.Add(dataMapping);
+                await _dbContext.SaveChangesAsync();
+
+                return new BaseResponse()
+                {
+                    Status = true,
+                    StatusCode = 200,
+                    Message = "Successfully Created!",
+                };
+            } catch (Exception ex) {
+                return new BaseResponse()
+                {
+                    Status = false,
+                    StatusCode = 500,
+                    Message = ex.ToString(),
+                };
+            }
+            
         }
         public async Task<BaseResponse> UpdateUser(int id, UpdateUserRequest request)
         {
@@ -128,8 +158,10 @@ namespace Dotnet_AnimeCRUD.Service
                 };
             }
 
+            var password = AuthHelper.Generate(request.Password);
+
             result.Username = request.Username;
-            result.Password = request.Password;
+            result.Password = password;
             result.RoleId = request.RoleId;
 
             // Mengupdate datanya
