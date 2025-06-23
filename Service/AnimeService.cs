@@ -1,10 +1,11 @@
 ﻿using System.Xml.Linq;
 using Dotnet_AnimeCRUD.Model;
 using Dotnet_AnimeCRUD.Model.DTO.Filter;
-using Dotnet_AnimeCRUD.Model.DTO.Request;
-using Dotnet_AnimeCRUD.Model.DTO.Response;
 using Dotnet_AnimeCRUD.Model.DTO.Response.BaseResponse;
-using Dotnet_AnimeCRUD.Model.Entities;
+using Dotnet_AnimeCRUD.Model.Entity;
+using Dotnet_AnimeCRUD.Models.DTO.Request;
+using Dotnet_AnimeCRUD.Models.DTO.Request.Anime;
+using Dotnet_AnimeCRUD.Models.DTO.Response.Anime;
 using Microsoft.EntityFrameworkCore;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
@@ -25,9 +26,9 @@ namespace Dotnet_AnimeCRUD.Service
         }
 
         // Pakai Task agar dia bisa async
-        // pakai PaginatedResponse agar pada swagger struktur model responsenya akan sama seperti DTO -> Response -> BaseResponse -> PaginatedResponse
+        // pakai PaginatedResponse agar pada swagger struktur model responsenya akan sama seperti DTO -> Response -> CommonResponse -> PaginatedResponse
         // AnimeFilter adalah yang dikirim dari Controllers -> AnimeController
-        public async Task<PaginatedResponse<AnimeResponse>> GetListAnime(AnimeFilter filter)
+        public async Task<PaginatedResponse<ListAnimeResponse>> GetListAnime(AnimeFilter filter)
         {
             // !!! Beda Mapping dengan Builder
             // !!! Builder = membuat objek.
@@ -61,16 +62,16 @@ namespace Dotnet_AnimeCRUD.Service
             // Mapping data yang didapat dari result
             // Kareana ini datanya banyak (array) maka kita masukan ke List (.ToList()) 
             // kemudian memasukannya ke AnimeResponse dan inisialisasi ke variabel data
-            var dataMapping = result.Select(data => new AnimeResponse
+            var dataMapping = result.Select(data => new ListAnimeResponse
             {
                 Id = data.Id,
                 Tittle = data.Tittle,
                 Description = data.Description
             }).ToList();
 
-            // Memasukan ke DTO -> Response -> BaseResponse -> PaginatedResponse
+            // Memasukan ke DTO -> Response -> CommonResponse -> PaginatedResponse
             // Dan Inisialisasikan ke variable response
-            PaginatedResponse<AnimeResponse> response = new PaginatedResponse<AnimeResponse>
+            PaginatedResponse<ListAnimeResponse> response = new PaginatedResponse<ListAnimeResponse>
             {
                 Status = true,
                 StatusCode = 200,
@@ -87,7 +88,7 @@ namespace Dotnet_AnimeCRUD.Service
         
         // Akan mereturn DetailResponse dengan turunan dari BaseResponse
         // Dan untuk object data dari DetailResponse untuk struktur modelnya akan menyamakan dari AnimeResponse
-        public async Task<DetailResponse<AnimeResponse>> GetDetailAnime(int id)
+        public async Task<DetailResponse<DetailAnimeResponse>> GetDetailAnime(int id)
         {
             // !!! Beda Mapping dengan Builder
             // !!! Builder = membuat objek.
@@ -99,18 +100,18 @@ namespace Dotnet_AnimeCRUD.Service
             {
                 // Kalau tidak ditemukan response Data nya akan mengembalikan AnimeResponse dengan data default yang sudah di atur di
                 // DTO -> Response -> AnimeResponse
-                return new DetailResponse<AnimeResponse>
+                return new DetailResponse<DetailAnimeResponse>
                 {
                     Status = false,
                     StatusCode = 404,
-                    Message = "Data Not Found!",
-                    Data = new AnimeResponse()
+                    Message = "Data Not Found!"
+                    //Data = new DetailAnimeResponse()
                 };
             }
 
 
             // Kalau datanya ada maka akan di mapping atau masukan dlu ke AnimeResponse yang datanya didapat dari query 
-            var dataMapping = new AnimeResponse
+            var dataMapping = new DetailAnimeResponse
             {
                 Id = result.Id,
                 Tittle = result.Tittle,
@@ -118,7 +119,7 @@ namespace Dotnet_AnimeCRUD.Service
             };
 
             // Kemudian yang sudah di mapping tadi dimasukan ke object data DetailResponse
-            var response = new DetailResponse<AnimeResponse>
+            var response = new DetailResponse<DetailAnimeResponse>
             {
                 Status = true,
                 StatusCode = 200,
@@ -129,7 +130,7 @@ namespace Dotnet_AnimeCRUD.Service
             return response;
         }
 
-        public async Task<BaseResponse> CreateAnime(AnimeRequest request)
+        public async Task<BaseResponse> CreateAnime(CreateAnimeRequest request)
         {
             // !!! Beda Mapping dengan Builder
             // !!! Builder = membuat objek.
@@ -152,10 +153,10 @@ namespace Dotnet_AnimeCRUD.Service
             {
                 Status = true,
                 StatusCode = 200,
-                Message = "Kntol Created!",
+                Message = "Successfully Created!",
             };
         }
-        public async Task<BaseResponse> UpdateAnime(int id, AnimeRequest request)
+        public async Task<BaseResponse> UpdateAnime(int id, UpdateAnimeRequest request)
         {
             // Akan mencari data anime berdasarkan id yg dari parameter
             var result = await _dbContext.Animes.FindAsync(id);
@@ -163,13 +164,13 @@ namespace Dotnet_AnimeCRUD.Service
             {
                 // Kalau datanya kosong akan return BaseResponse "Not Found"
 
-                return BaseResponse.NotFound();
-                //return new BaseResponse()
-                //{
-                //    Status = false,
-                //    StatusCode = 404,
-                //    Message = "Data Not Found!",
-                //};
+                //return BaseResponse.NotFound();
+                return new BaseResponse()
+                {
+                    Status = false,
+                    StatusCode = 404,
+                    Message = "Data Not Found!",
+                };
             }
 
             // Kalau update TIDAK PERLU DI MAPPING :v
@@ -187,7 +188,6 @@ namespace Dotnet_AnimeCRUD.Service
                 Message = "Successfully Updated!",
             };
         }
-
         public async Task<BaseResponse> DeleteAnime(int id)
         {
 

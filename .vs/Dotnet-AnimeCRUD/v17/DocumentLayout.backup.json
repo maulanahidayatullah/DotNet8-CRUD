@@ -3,44 +3,64 @@
   "WorkspaceRootPath": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\service\\animeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:service\\animeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\models\\dto\\request\\anime\\createanimerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:models\\dto\\request\\anime\\createanimerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\model\\dto\\request\\animerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:model\\dto\\request\\animerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\model\\dto\\response\\baseresponse\\baseresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:model\\dto\\response\\baseresponse\\baseresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\models\\animedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:models\\animedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\helpers\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:helpers\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\models\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:models\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\models\\dto\\response\\auth\\meresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:models\\dto\\response\\auth\\meresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\models\\dto\\response\\user\\detailuserresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:models\\dto\\response\\user\\detailuserresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\controllers\\animecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:controllers\\animecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\model\\dto\\response\\baseresponse\\detailresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:model\\dto\\response\\baseresponse\\detailresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\model\\dto\\response\\animeresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:model\\dto\\response\\animeresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\models\\dto\\request\\user\\createuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:models\\dto\\request\\user\\createuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\model\\entity\\anime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:model\\entity\\anime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\models\\dto\\request\\user\\updateuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:models\\dto\\request\\user\\updateuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\model\\animedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:model\\animedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\service\\animeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:service\\animeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|c:\\users\\p15s\\documents\\_project\\dotnet-animecrud\\models\\dto\\request\\auth\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D05AF15E-09BF-4D6C-AE06-57C6B5957512}|Dotnet-AnimeCRUD.csproj|solutionrelative:models\\dto\\request\\auth\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,132 +78,197 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T15:37:58.009Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AnimeRequest.cs",
-              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Model\\DTO\\Request\\AnimeRequest.cs",
-              "RelativeDocumentMoniker": "Model\\DTO\\Request\\AnimeRequest.cs",
-              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Model\\DTO\\Request\\AnimeRequest.cs",
-              "RelativeToolTip": "Model\\DTO\\Request\\AnimeRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T16:37:15.714Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-16T15:34:29.017Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AnimeController.cs",
-              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Controllers\\AnimeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AnimeController.cs",
-              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Controllers\\AnimeController.cs",
-              "RelativeToolTip": "Controllers\\AnimeController.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAgwD4AAAAxAAAAAAAAAA==",
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABgAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T14:53:02.342Z",
+              "WhenOpened": "2025-06-23T02:37:32.524Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Service\\UserService.cs",
+              "RelativeDocumentMoniker": "Service\\UserService.cs",
+              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Service\\UserService.cs",
+              "RelativeToolTip": "Service\\UserService.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAIwHUAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T02:41:40.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CreateUserRequest.cs",
+              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\DTO\\Request\\User\\CreateUserRequest.cs",
+              "RelativeDocumentMoniker": "Models\\DTO\\Request\\User\\CreateUserRequest.cs",
+              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\DTO\\Request\\User\\CreateUserRequest.cs",
+              "RelativeToolTip": "Models\\DTO\\Request\\User\\CreateUserRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T02:44:02.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UpdateUserRequest.cs",
+              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\DTO\\Request\\User\\UpdateUserRequest.cs",
+              "RelativeDocumentMoniker": "Models\\DTO\\Request\\User\\UpdateUserRequest.cs",
+              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\DTO\\Request\\User\\UpdateUserRequest.cs",
+              "RelativeToolTip": "Models\\DTO\\Request\\User\\UpdateUserRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T02:44:06.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\DTO\\Request\\Auth\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "Models\\DTO\\Request\\Auth\\LoginRequest.cs",
+              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\DTO\\Request\\Auth\\LoginRequest.cs",
+              "RelativeToolTip": "Models\\DTO\\Request\\Auth\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T02:44:51.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "AnimeService.cs",
               "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Service\\AnimeService.cs",
               "RelativeDocumentMoniker": "Service\\AnimeService.cs",
               "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Service\\AnimeService.cs",
               "RelativeToolTip": "Service\\AnimeService.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAYwJoAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAFoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T10:53:53.387Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DetailResponse.cs",
-              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Model\\DTO\\Response\\BaseResponse\\DetailResponse.cs",
-              "RelativeDocumentMoniker": "Model\\DTO\\Response\\BaseResponse\\DetailResponse.cs",
-              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Model\\DTO\\Response\\BaseResponse\\DetailResponse.cs",
-              "RelativeToolTip": "Model\\DTO\\Response\\BaseResponse\\DetailResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T12:14:37.801Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AnimeResponse.cs",
-              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Model\\DTO\\Response\\AnimeResponse.cs",
-              "RelativeDocumentMoniker": "Model\\DTO\\Response\\AnimeResponse.cs",
-              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Model\\DTO\\Response\\AnimeResponse.cs",
-              "RelativeToolTip": "Model\\DTO\\Response\\AnimeResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T16:21:51.611Z",
+              "WhenOpened": "2025-06-23T02:45:34.137Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Anime.cs",
-              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Model\\Entity\\Anime.cs",
-              "RelativeDocumentMoniker": "Model\\Entity\\Anime.cs",
-              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Model\\Entity\\Anime.cs",
-              "RelativeToolTip": "Model\\Entity\\Anime.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAUAAAAzAAAAAAAAAA==",
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Service\\AuthService.cs",
+              "RelativeDocumentMoniker": "Service\\AuthService.cs",
+              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Service\\AuthService.cs",
+              "RelativeToolTip": "Service\\AuthService.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAswG0AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T10:47:31.438Z",
+              "WhenOpened": "2025-06-20T09:23:37.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AnimeController.cs",
+              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Controllers\\AnimeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AnimeController.cs",
+              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Controllers\\AnimeController.cs",
+              "RelativeToolTip": "Controllers\\AnimeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T03:01:24.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DetailUserResponse.cs",
+              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\DTO\\Response\\User\\DetailUserResponse.cs",
+              "RelativeDocumentMoniker": "Models\\DTO\\Response\\User\\DetailUserResponse.cs",
+              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\DTO\\Response\\User\\DetailUserResponse.cs",
+              "RelativeToolTip": "Models\\DTO\\Response\\User\\DetailUserResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T03:05:55.252Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "AnimeDBContext.cs",
-              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Model\\AnimeDBContext.cs",
-              "RelativeDocumentMoniker": "Model\\AnimeDBContext.cs",
-              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Model\\AnimeDBContext.cs",
-              "RelativeToolTip": "Model\\AnimeDBContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAiAAAAAAAAAA==",
+              "Title": "MeResponse.cs",
+              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\DTO\\Response\\Auth\\MeResponse.cs",
+              "RelativeDocumentMoniker": "Models\\DTO\\Response\\Auth\\MeResponse.cs",
+              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\DTO\\Response\\Auth\\MeResponse.cs",
+              "RelativeToolTip": "Models\\DTO\\Response\\Auth\\MeResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T10:46:23.352Z",
+              "WhenOpened": "2025-06-23T03:06:26.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Role.cs",
+              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\Entities\\Role.cs",
+              "RelativeDocumentMoniker": "Models\\Entities\\Role.cs",
+              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\Entities\\Role.cs",
+              "RelativeToolTip": "Models\\Entities\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T03:07:21.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "JwtTokenGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Helpers\\JwtTokenGenerator.cs",
+              "RelativeDocumentMoniker": "Helpers\\JwtTokenGenerator.cs",
+              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Helpers\\JwtTokenGenerator.cs",
+              "RelativeToolTip": "Helpers\\JwtTokenGenerator.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAADwvx4AAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T03:08:26.155Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "BaseResponse.cs",
-              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Model\\DTO\\Response\\BaseResponse\\BaseResponse.cs",
-              "RelativeDocumentMoniker": "Model\\DTO\\Response\\BaseResponse\\BaseResponse.cs",
-              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Model\\DTO\\Response\\BaseResponse\\BaseResponse.cs",
-              "RelativeToolTip": "Model\\DTO\\Response\\BaseResponse\\BaseResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAsAAAAAAAAAA==",
+              "Title": "AnimeDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\AnimeDBContext.cs",
+              "RelativeDocumentMoniker": "Models\\AnimeDBContext.cs",
+              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\AnimeDBContext.cs",
+              "RelativeToolTip": "Models\\AnimeDBContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T07:25:38.924Z",
+              "WhenOpened": "2025-06-23T03:15:55.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Models\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\Entities\\User.cs",
+              "RelativeToolTip": "Models\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T03:15:57.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateAnimeRequest.cs",
+              "DocumentMoniker": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\DTO\\Request\\Anime\\CreateAnimeRequest.cs",
+              "RelativeDocumentMoniker": "Models\\DTO\\Request\\Anime\\CreateAnimeRequest.cs",
+              "ToolTip": "C:\\Users\\P15S\\Documents\\_Project\\Dotnet-AnimeCRUD\\Models\\DTO\\Request\\Anime\\CreateAnimeRequest.cs",
+              "RelativeToolTip": "Models\\DTO\\Request\\Anime\\CreateAnimeRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T03:30:38.043Z",
               "EditorCaption": ""
             }
           ]
