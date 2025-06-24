@@ -59,7 +59,6 @@ namespace Dotnet_AnimeCRUD.Controllers
             return await animeService.GetDetailAnime(id);
         }
 
-
         [Authorize(Roles = "Admin")]
         [HttpPost("create")]
         public async Task<BaseResponse> CreateAnime([FromBody] CreateAnimeRequest request)
@@ -82,5 +81,20 @@ namespace Dotnet_AnimeCRUD.Controllers
         {
             return await animeService.DeleteAnime(id);
         }
+
+        [Authorize(Roles = "User")]
+        [HttpGet("favorite")]
+        public async Task<PaginatedResponse<DetailAnimeResponse>> GetFavoriteAnime([FromQuery] AnimeFilter filter)
+        {
+            return await animeService.GetFavoriteAnime(filter);
+        }
+
+        [Authorize(Roles = "User")]
+        [HttpPost("favorite/create")]
+        public async Task<BaseResponse> CreateFavoriteAnime([FromBody] FavoriteAnimeRequest request)
+        {
+            return await animeService.CreateFavoriteAnime(request);
+        }
+        
     }
 }

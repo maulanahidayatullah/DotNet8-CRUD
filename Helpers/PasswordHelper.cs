@@ -1,7 +1,7 @@
 ﻿using BCrypt.Net;
 namespace Dotnet_AnimeCRUD.Helpers
 {
-    public class AuthHelper
+    public class PasswordHelper
     {
         // Hash password
         public static string Generate(string password)

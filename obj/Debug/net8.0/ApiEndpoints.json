@@ -115,6 +115,68 @@
   },
   {
     "ContainingType": "Dotnet_AnimeCRUD.Controllers.AnimeController",
+    "Method": "GetFavoriteAnime",
+    "RelativePath": "api/anime/favorite",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Dotnet_AnimeCRUD.Model.DTO.Response.BaseResponse.PaginatedResponse\u00601[[Dotnet_AnimeCRUD.Models.DTO.Response.Anime.DetailAnimeResponse, Dotnet-AnimeCRUD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Dotnet_AnimeCRUD.Controllers.AnimeController",
+    "Method": "CreateFavoriteAnime",
+    "RelativePath": "api/anime/favorite/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Dotnet_AnimeCRUD.Models.DTO.Request.Anime.FavoriteAnimeRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Dotnet_AnimeCRUD.Model.DTO.Response.BaseResponse.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Dotnet_AnimeCRUD.Controllers.AnimeController",
     "Method": "UpdateAnime",
     "RelativePath": "api/anime/update/{id}",
     "HttpMethod": "PUT",

@@ -1,4 +1,6 @@
-﻿using System.Xml.Linq;
+﻿using System.Security.Claims;
+using System.Xml.Linq;
+using Dotnet_AnimeCRUD.Helpers;
 using Dotnet_AnimeCRUD.Model;
 using Dotnet_AnimeCRUD.Model.DTO.Filter;
 using Dotnet_AnimeCRUD.Model.DTO.Response.BaseResponse;
@@ -16,11 +18,13 @@ namespace Dotnet_AnimeCRUD.Service
     {
         private readonly AnimeDBContext _dbContext; // untuk memanggil db nya
         private readonly ILogger<AnimeService> _logger; // untuk logging dari .net
+        private readonly UserLoginHelper _userLoginHelper;
 
         // Diharuskan pakai constructor
         // Agar di inject atau class lain bisa di pakai di class ini
-        public AnimeService(ILogger<AnimeService> _logger, AnimeDBContext _dbContext)
+        public AnimeService(ILogger<AnimeService> _logger, AnimeDBContext _dbContext, UserLoginHelper _userLoginHelper)
         {
+            this._userLoginHelper = _userLoginHelper;
             this._logger = _logger;
             this._dbContext = _dbContext;
         }
@@ -246,6 +250,90 @@ namespace Dotnet_AnimeCRUD.Service
                 Message = "Successfully Deleted!",
             };
         }
+        public async Task<PaginatedResponse<DetailAnimeResponse>> GetFavoriteAnime(AnimeFilter filter)
+        {
+            int page = filter.Page;
+            int pagesize = filter.PageSize;
+            int offset = (page - 1) * pagesize;
 
+            var query = _dbContext.UserAnimeFavorites
+                .Include(a => a.Anime)
+                    .ThenInclude(ac => ac.AnimeCategories)
+                        .ThenInclude(c => c.Category)
+                .Where(a => a.UserId == _userLoginHelper.GetUserId())
+                .Select(a => a.Anime)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(filter.Search))
+            {
+                query = query.Where(a => EF.Functions.ILike(a.Tittle, $"%{filter.Search}%"));
+            }
+
+            var result = await query
+                .Skip(offset)
+                .Take(pagesize)
+                .ToListAsync();
+
+            var totalData = await query.CountAsync();
+            var maxPage = (int)Math.Ceiling((double)totalData / pagesize);
+
+            // Deklarasi dataMapping Menjadi array
+            var dataMapping = new List<DetailAnimeResponse>();
+
+            // data array result di foreach menjadi anime
+            foreach (var anime in result)
+            {
+                // Mengisi object DetailAnimeResponse dan mengubahnya ke variable data
+                var data = new DetailAnimeResponse
+                {
+                    Id = anime.Id,
+                    Tittle = anime.Tittle,
+                    Description = anime.Description
+                };
+
+                // data array result kan punya relasi m to m ke category
+                // jadi dia ke tabel relasi AnimeCategories untuk dapat category nya
+                foreach (var animecategory in anime.AnimeCategories)
+                {
+                    // Memasukan data Category ke dto CategoriesDTO yang ada di nested DetailAnimeResponse
+                    data.Categories.Add(new DetailAnimeResponse.CategoriesDTO
+                    {
+                        Id = animecategory.Category.Id,
+                        Categoryname = animecategory.Category.Categoryname
+                    });
+                }
+
+                dataMapping.Add(data);
+            }
+
+            var response = new PaginatedResponse<DetailAnimeResponse>
+            {
+                Status = true,
+                StatusCode = 200,
+                Message = "Data Retrieved Successfully!",
+                Data = dataMapping
+            };
+
+            return response;
+        }
+        public async Task<BaseResponse> CreateFavoriteAnime(FavoriteAnimeRequest request)
+        {
+            var dataMapping = new UserAnimeFavorite
+            {
+                UserId = _userLoginHelper.GetUserId(),
+                AnimeId = request.AnimeId
+            };
+
+            // Tambahkan dataMapping tadi ke fungsi Add
+            _dbContext.UserAnimeFavorites.Add(dataMapping);
+            await _dbContext.SaveChangesAsync();
+
+            return new BaseResponse()
+            {
+                Status = true,
+                StatusCode = 200,
+                Message = "Successfully Add To Favorite!",
+            };
+        }
     }
 }

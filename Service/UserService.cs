@@ -18,11 +18,11 @@ namespace Dotnet_AnimeCRUD.Service
     {
         private readonly AnimeDBContext _dbContext; // untuk memanggil db nya
         private readonly ILogger<UserService> _logger; // untuk logging dari .net
-        private readonly AuthHelper _authHelper; // untuk generate jwt yang ada di helper
+        private readonly PasswordHelper _authHelper; // untuk generate jwt yang ada di helper
 
         // Diharuskan pakai constructor
         // Agar di inject atau class lain bisa di pakai di class ini
-        public UserService(ILogger<UserService> _logger, AnimeDBContext _dbContext, AuthHelper _authHelper)
+        public UserService(ILogger<UserService> _logger, AnimeDBContext _dbContext, PasswordHelper _authHelper)
         {
             this._authHelper = _authHelper;
             this._logger = _logger;
@@ -117,7 +117,7 @@ namespace Dotnet_AnimeCRUD.Service
                     };
                 }
 
-                var password = AuthHelper.Generate(request.Password);
+                var password = PasswordHelper.Generate(request.Password);
 
                 var dataMapping = new User
                 {
@@ -158,7 +158,7 @@ namespace Dotnet_AnimeCRUD.Service
                 };
             }
 
-            var password = AuthHelper.Generate(request.Password);
+            var password = PasswordHelper.Generate(request.Password);
 
             result.Username = request.Username;
             result.Password = password;

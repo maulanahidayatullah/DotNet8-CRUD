@@ -24,6 +24,7 @@ namespace Dotnet_AnimeCRUD.Model
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Role> Roles{ get; set; }
         public virtual DbSet<AnimeCategory> AnimeCategories { get; set; }
+        public virtual DbSet<UserAnimeFavorite> UserAnimeFavorites { get; set; }
 
 
         // Kalau ada relasi many to many di daftarkan disini

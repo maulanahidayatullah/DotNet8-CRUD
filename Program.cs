@@ -51,7 +51,8 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<CategoryService>();
 
 builder.Services.AddScoped<JwtConfig>();
-builder.Services.AddScoped<AuthHelper>();
+builder.Services.AddScoped<PasswordHelper>();
+builder.Services.AddScoped<UserLoginHelper>();
 
 builder.Services.AddDbContext<AnimeDBContext>(options =>
     // GetConnectionString yang ada pada appsettings.json
@@ -80,6 +81,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// Pakai ini buat dapet data dari jwt
 builder.Services.AddHttpContextAccessor();
 
 

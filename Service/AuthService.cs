@@ -39,7 +39,7 @@ namespace Dotnet_AnimeCRUD.Service
                     .Include(u => u.Role)
                     .FirstOrDefaultAsync(u => u.Username == request.Username);
 
-            if (result is null || !AuthHelper.Verify(request.Password, result.Password))
+            if (result is null || !PasswordHelper.Verify(request.Password, result.Password))
             {
                 return new DetailResponse<LoginResponse>
                 {
